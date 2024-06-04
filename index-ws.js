@@ -19,8 +19,7 @@ const wss = new WebSocketSever({server});
 
 wss.on('connection', (ws) => {
     const numClients = wss.clients.size;
-    console.log('Client connected. Total clients: ', numClients);
-    wss.broadcast('new client connected. Total clients: ', numClients);
+    wss.broadcast(`new client connected. Total clients: ${numClients}`, );
 
     if (ws.readyState === ws.OPEN) {
         ws.send('Welcome to websocket server');
